@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors!</title>
+</head>
+<body>
+    <script>
+        const options = ["Rock", "Paper", "Scissors"];
+        // Templates
+        const win = "You win!", lose = "You lose!", tie = "You tied!";
+        let playerSelection, computerSelection;
+
+        // Standardize user input
+        function capitalize(word) {
+            return upWord = word[0].toUpperCase() + word.slice(1).toLowerCase();
+        }
+
+        // Choose random element from the options list
+        function computerPlay() {
+            return options[Math.floor(Math.random() * 3)];
+        }
+
+        // Play one round
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = capitalize(playerSelection);
+            if ((playerSelection == options[0] && computerSelection == options[2]) || (playerSelection == options[1] && computerSelection == options[0]) || (playerSelection == options[2] && computerSelection == options[1])) {
+                return win + ` ${playerSelection} beats ${computerSelection}.`;
+            } else if (playerSelection == computerSelection) {
+                return tie + ` You both selected ${playerSelection}.`;
+            } else {
+                return lose + ` ${computerSelection} beats ${playerSelection}.`;
+            }
+        }
+
+        // Play a full game with score
+        function game(rounds) {
+            let roundCounter,
+                playerScore = 0, computerScore = 0;
+            // Play amount of rounds specified by the user
+            for (let i = 0; i < rounds; i++) {
+                playerSelection = window.prompt("Rock, Paper or Scissors?");
+                // Reprompt user if an incorrect value was chosen
+                while (!options.includes(capitalize(playerSelection))) {
+                    playerSelection = window.prompt(`${playerSelection} is not an option. Please choose again!`);
+                }
+                // Play round
+                computerSelection = computerPlay();
+                roundCounter = playRound(playerSelection, computerSelection);
+                // Keep track of score
+                console.log(roundCounter);
+                if (roundCounter.includes("lose")) {
+                    computerScore++;
+                } else if (roundCounter.includes("win")) {
+                    playerScore++;
+                } else {
+                    playerScore++;
+                    computerScore++;
+                }
+            }
+            // New line before score announcement
+            console.log("\n");
+            // Return appropriate message with the final score
+            if (playerScore > computerScore) {
+                return `Congrats! You are the winner.\nFinal Score: ${playerScore}-${computerScore}`;
+            } else if (playerScore < computerScore) {
+                return `I'm sorry, you lost! :(\nFinal Score: ${playerScore}-${computerScore}`;
+            } else {
+                return `It's a tie!\nFinal Score: ${playerScore}-${computerScore}`;
+            }
+        }
+
+        // Check if user input is a valid integer
+        let n = window.prompt("How many rounds do you want to play?");
+        while (!Number.isInteger(+n)) {
+            n = window.prompt(`${n} is not a valid integer. Try again.`);
+        }
+        // play!
+        console.log(game(n));
+    </script>
+</body>
+</html>
