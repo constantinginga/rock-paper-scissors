@@ -1,0 +1,124 @@
+:root {
+    --yellow: #FFDC5D;
+    --black: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+    #container {
+        width: 90% !important;
+    }
+    .choice {
+        height: 20rem !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #container {
+        width: 80vw !important;
+        margin-top: 5rem !important;
+    }
+
+    #result {
+        margin-bottom: 2rem !important;
+    }
+
+    #choices {
+        flex-direction: column;
+        width: 80% !important;
+    }
+    .choice {
+        padding: 2rem 0 !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+html, body {
+    font-size: 10px;
+    font-family: 'Quicksand', sans-serif;
+    user-select: none;
+}
+
+#container {
+    margin: 15rem auto 0 auto;
+    width: 100rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-size: 3rem;
+}
+
+#result {
+    font-size: 1.8rem;
+    font-style: italic;
+    opacity: 0.5;
+    margin: .5rem 0 4rem 0;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+#score {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+
+#btn {
+    cursor: pointer;
+    height: 5rem;
+    width: 20rem;
+    border: none;
+    outline: none;
+    background: var(--yellow);
+    border-radius: 10px;
+    opacity: 0.8;
+    font-size: 1.7rem;
+    letter-spacing: 0.02em;
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+#btn:hover {
+    box-shadow: 1px 1px 4px 0px var(--black);
+    border: 1px solid rgba(240,158,71, 0.3);
+    opacity: 1;
+}
+
+#choices {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.choice {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 25rem;
+    font-size: 12rem;
+    margin: 3rem 2rem;
+    opacity: 0.8;
+}
+
+.choice:hover {
+    box-shadow: 1px 1px 4px 0px var(--black);
+    opacity: 1;
+}
+
+.fa {
+    color: var(--yellow);
+}
+
