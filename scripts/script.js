@@ -79,8 +79,8 @@ function game() {
         rounds = window.prompt(`${rounds} is not a valid round number. Please try again.`);
     }
     result.innerHTML = `May luck be on your side!`;
-    scorePara.innerHTML = `&nbsp;`;
-    scorePara.style.color = '#000';
+    scorePara.classList.remove("fadeIn");
+    changeContent(`&nbsp;`, `#000`);
     btn.textContent = `Play`;
 }
 
@@ -94,19 +94,25 @@ function updateScores(playerScore, computerScore, roundsPlayed) {
     // If not, show final result
     else {
         if (playerScore > computerScore) {
-            scorePara.textContent = `Congrats! You are the winner :)`;
-            scorePara.style.color = 'green';
+            scorePara.classList.add("fadeIn");
+            changeContent(`Congrats! You are the winner :)`, `green`);
         }
         else if (playerScore < computerScore) {
-            scorePara.textContent = `I'm sorry, you lost! :(`;
-            scorePara.style.color = 'red';
+            scorePara.classList.add("fadeIn");
+            changeContent(`I'm sorry, you lost! :(`, `red`);
         } else {
-            scorePara.textContent = `Looks like it's a tie.`;
-            scorePara.style.color = 'blue';
+            scorePara.classList.add("fadeIn");
+            changeContent(`Looks like it's a tie.`, `blue`);
         }
         result.innerHTML = `&nbsp;`;
         btn.textContent = `Play Again`;
         // and end the game
         gameState = false;
     }
+}
+
+
+function changeContent(text, color) {
+    scorePara.innerHTML = text;
+    scorePara.style.color = color;
 }

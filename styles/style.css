@@ -1,6 +1,7 @@
 :root {
     --yellow: #FFDC5D;
     --black: rgba(0, 0, 0, 0.2);
+    --dark-yellow: #F2D159;
 }
 
 * {
@@ -56,6 +57,7 @@ html, body {
 
 #title {
     font-size: 3rem;
+    text-align: center;
 }
 
 #result {
@@ -65,6 +67,7 @@ html, body {
     margin: .5rem 0 4rem 0;
     text-align: center;
     letter-spacing: 0.02em;
+    transition: 2s;
 }
 
 #score {
@@ -82,17 +85,18 @@ html, body {
     outline: none;
     background: var(--yellow);
     border-radius: 10px;
-    opacity: 0.8;
+    opacity: 0.9;
     font-size: 1.7rem;
     letter-spacing: 0.02em;
     margin: 2rem 0;
     padding: 1rem;
+    transition: .2s;
 }
 
 #btn:hover {
     box-shadow: 1px 1px 4px 0px var(--black);
-    border: 1px solid rgba(240,158,71, 0.3);
     opacity: 1;
+    background: var(--dark-yellow);
 }
 
 #choices {
@@ -110,7 +114,8 @@ html, body {
     height: 25rem;
     font-size: 12rem;
     margin: 3rem 2rem;
-    opacity: 0.8;
+    opacity: .9;
+    transition: .3s ease;
 }
 
 .choice:hover {
@@ -118,7 +123,28 @@ html, body {
     opacity: 1;
 }
 
-.fa {
-    color: var(--yellow);
+.choice:hover .fa {
+    opacity: 1;
+    transform: scale(1.1);
+    color: var(--dark-yellow);
 }
 
+.fa {
+    color: var(--yellow);
+    transition: .3s ease;
+    opacity: .9;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn ease 2s;
+}
